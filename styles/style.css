@@ -1,0 +1,245 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  background-color: #f1f8ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 76px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Container Sizes */
+@media (min-width: 768px) {
+  .container {
+    width: 735px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Navbar Styles */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 20px 0 #00000025;
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px 0;
+  z-index: 641;
+}
+
+nav .logo h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav button {
+  border: 2px solid #18aaee;
+  outline: none;
+  padding: 5px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: .2s;
+  transition-property: background-color, color;
+}
+
+nav button:hover {
+  color: white;
+  background-color: #18aaee;
+}
+
+/* Create Post Popup Styles */
+.popup-overlay {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5649;
+  background-color: #00000021;
+  justify-content: center;
+}
+
+.popup-post {
+  margin: 0 10px;
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #00000075;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.popup-post i {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 36px;
+  color: #18aaee;
+  background-color: #fff;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.popup-post i::before {
+  vertical-align: 0;
+}
+
+.popup-post h1 {
+  margin: 0;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.popup-post form [for='create-title'],
+.popup-post form [for='create-content'] {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.popup-post form input {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #ffffff8f;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.popup-post form [type="submit"] {
+  background-color: #18aaee;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.popup-post form [type="submit"]:hover {
+  background-color: #0b92d1;
+}
+
+/* Loading Animation Styles */
+#loading {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+
+#loading span {
+  animation: top-bottom 2s infinite;
+}
+
+#loading span:nth-child(1) { animation-delay: 0.2s; }
+#loading span:nth-child(2) { animation-delay: 0.4s; }
+#loading span:nth-child(3) { animation-delay: 0.6s; }
+#loading span:nth-child(4) { animation-delay: 0.8s; }
+#loading span:nth-child(5) { animation-delay: 1s; }
+#loading span:nth-child(6) { animation-delay: 1.2s; }
+#loading span:nth-child(7) { animation-delay: 1.4s; }
+#loading span:nth-child(8) { animation-delay: 1.6s; }
+#loading span:nth-child(9) { animation-delay: 1.8s; }
+#loading span:nth-child(10) { animation-delay: 2s; }
+
+@keyframes top-bottom {
+  0%, 36% {
+    transform: translateY(0px);
+  }
+
+  18% {
+    transform: translateY(-5px);
+    color: #18aaee;
+  }
+}
+
+/* Posts Styles */
+.posts {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.posts .post .top i {
+  font-size: 18px;
+  padding: 4.6px 6px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: rgb(219, 77, 77);
+  cursor: pointer;
+}
+
+.posts .post:nth-child(1) .top i,
+.posts .post:nth-child(2) .top i,
+.posts .post:nth-child(3) .top i {
+  color: #18aaee;
+  cursor: default;
+  background-color: transparent;
+}
+
+.posts .post .top i.bi-pencil-square {
+  background-color: #18aaee;
+}
+
+.posts .post {
+  padding: 10px;
+  box-shadow: 0px 0px 20px 0 #00000015;
+  border-radius: 10px;
+}
+
+.posts .post .title {
+  margin: 0;
+}
+
+.posts .post .content {
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.posts .post .date {
+  font-size: 14px;
+  text-align: right;
+}
